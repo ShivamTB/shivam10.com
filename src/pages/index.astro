@@ -20,11 +20,16 @@ const quotes = await getCollection('quotes');
 		<main id="main" class="container py-20 space-y-16" role="main">
 			<section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 				<div class="space-y-8">
-					<Wordmark size={400} />
+					<div class="space-y-1">
+						<p class="text-neutral-400 text-lg -mb-2">Hi, I am</p>
+						<div class="inline-block">
+							<Wordmark size={300} />
+						</div>
+					</div>
 					<div class="space-y-6">
-						<p class="text-neutral-200 text-xl">I'm Shivam, an engineer who writes and photographs. I also disappear into new countries, playlists, games, and code.</p>
-						<p class="text-neutral-300 text-lg">This is where the things I've built, broken, and rebuilt find a voice. Stories from airports and algorithms, quiet lessons from friendships, and a restless pursuit of meaning in motion.</p>
-						<p class="text-neutral-300 text-lg">Here you'll find fragments of life: some written, some captured, some still figuring themselves out.</p>
+						<p class="text-neutral-200 text-xl">An engineer who writes and photographs. I also disappear into new countries, playlists, games, and code.</p>
+						<p class="text-neutral-300 text-xl">This is where the things I've built, broken, and rebuilt find a voice. Stories from airports and algorithms, quiet lessons from friendships, and a restless pursuit of meaning in motion.</p>
+						<p class="text-neutral-300 text-xl">Here you'll find fragments of life: some written, some captured, some still figuring themselves out.</p>
 					</div>
 				</div>
 				
@@ -76,10 +81,10 @@ const quotes = await getCollection('quotes');
 		<div class="container py-16 space-y-16">
 			<section id="writing" class="space-y-4">
 				<h2>Writing & Reflections</h2>
-				<ul class="space-y-2">
+				<ul class="space-y-1">
 					{writing.slice(0, 4).map((p) => (
 						<li>
-							<a href={`/writing/${p.id}/`} class="group inline-flex items-baseline gap-2 no-underline">
+							<a href={`/writing/${p.id}/`} class="group inline-space-y-1 no-underline">
 								<span class="text-neutral-400 group-hover:text-neutral-200">{p.data.title}</span>
 								<span class="text-neutral-600 group-hover:text-neutral-400">{p.data.pubDate.toLocaleDateString()}</span>
 							</a>
@@ -90,10 +95,10 @@ const quotes = await getCollection('quotes');
 
 			<section id="projects" class="space-y-4">
 				<h2>Projects</h2>
-				<ul class="space-y-2">
+				<ul class="space-y-1">
 					{projects.slice(0, 4).map((p) => (
 						<li>
-							<a href={`/projects/${p.id}/`} class="group inline-flex items-baseline gap-2 no-underline">
+							<a href={`/projects/${p.id}/`} class="group inline-space-y-1 no-underline">
 								<span class="text-neutral-400 group-hover:text-neutral-200">{p.data.title}</span>
 								<span class="text-neutral-600 group-hover:text-neutral-400">{p.data.started?.toLocaleDateString() || 'No date'}</span>
 							</a>
@@ -104,10 +109,10 @@ const quotes = await getCollection('quotes');
 
 			<section id="photos" class="space-y-4">
 				<h2>Photos</h2>
-				<ul class="space-y-2">
+				<ul class="space-y-1">
 					{photos.slice(0, 4).map((p) => (
 						<li>
-							<a href={`/photos/${p.id}/`} class="group inline-flex items-baseline gap-2 no-underline">
+							<a href={`/photos/${p.id}/`} class="group inline-space-y-1 no-underline">
 								<span class="text-neutral-400 group-hover:text-neutral-200">{p.data.title}</span>
 								<span class="text-neutral-600 group-hover:text-neutral-400">{p.data.shotDate?.toLocaleDateString() || 'No date'}</span>
 							</a>
@@ -118,10 +123,10 @@ const quotes = await getCollection('quotes');
 
 			<section id="quotes" class="space-y-4">
 				<h2>Quotes</h2>
-				<ul class="space-y-2">
+				<ul class="space-y-1">
 					{quotes.slice(0, 4).map((p) => (
 						<li>
-							<a href={`/quotes/${p.id}/`} class="group inline-flex items-baseline gap-2 no-underline">
+							<a href={`/quotes/${p.id}/`} class="group inline-space-y-1 no-underline">
 								<span class="text-neutral-400 group-hover:text-neutral-200">{p.data.text}</span>
 								<span class="text-neutral-600 group-hover:text-neutral-400">{p.data.date?.toLocaleDateString() || 'No date'}</span>
 							</a>
