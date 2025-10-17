@@ -1,0 +1,38 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+const items = await getCollection('projects');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects • ${SITE_TITLE}`} description="Passion projects" />
+	</head>
+	<body>
+		<Header />
+		<main class="container py-10 space-y-6">
+			<h1 class="text-3xl font-semibold">Passion Projects</h1>
+			<ul class="space-y-3">
+				{items.map((p) => (
+					<li class="p-4 rounded-lg border border-neutral-900 bg-neutral-950">
+						<div class="flex items-center justify-between">
+							<div>
+								<div class="font-medium">{p.data.title}</div>
+								<div class="text-neutral-400 text-sm">{p.data.summary}</div>
+							</div>
+							<div class="text-xs text-neutral-500 uppercase">{p.data.status}</div>
+						</div>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+

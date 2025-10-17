@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+const items = await getCollection('quotes');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Quotes • ${SITE_TITLE}`} description="Identity and quotes" />
+	</head>
+	<body>
+		<Header />
+		<main class="container py-10 space-y-6">
+			<h1 class="text-3xl font-semibold">Quotes</h1>
+			<ul class="space-y-4">
+				{items.map((q) => (
+					<li class="p-4 rounded-lg border border-neutral-900 bg-neutral-950">
+						<blockquote class="text-neutral-200">{q.data.text}</blockquote>
+						{q.data.source && <div class="text-neutral-500 text-sm mt-2">— {q.data.source}</div>}
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+
